@@ -1,0 +1,2 @@
+name = input("enter your namr ")
+print(f"Hi you are {namr} right")
