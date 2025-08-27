@@ -11,6 +11,7 @@ def THE_calculator2():
     print("6. Square Root")
     print("7. HCF")
     print("8. LCM")
+    print("9. array stuff")
     print("\nType 'exit' at any time to quit the calculator.") # Added exit instruction
 
     while True: # Start of the infinite loop
@@ -96,12 +97,70 @@ def THE_calculator2():
                 print(f"The answer = {lwans}")
             except ValueError:
                 print("Invalid input. Please enter integers only for LCM.")
-        else:
+        elif:
             print("Invalid option. Please choose a number between 1 and 8.")
-            
+        elif option == 9:
+            print("1.add array")
+            print("2. subtract array")
+            print("3. multiply array")
+            print("2. divide array")
+            print("what do you want to do")
+            arrayop = int(input("enter the option"))
+            if arrayop == 1:
+                try:
+                    arr1 = input("Enter the first array elements separated by spaces: ")
+                    arr2 = input("Enter the second array elements separated by spaces: ")
+                    arr1 = np.array([float(x) for x in arr1.split()])
+                    arr2 = np.array([float(x) for x in arr2.split()])
+                    if arr1.shape != arr2.shape:
+                        print("Error: Arrays must have the same shape for addition.")
+                    else:
+                        result = np.add(arr1, arr2)
+                        print(f"The result of array addition is: {result}")
+                except ValueError:
+                    print("Invalid input. Please enter numbers only for arrays.")
+            elif arrayop == 2:
+                try:
+                    arr1 = input("Enter the first array elements separated by spaces: ")
+                    arr2 = input("Enter the second array elements separated by spaces: ")
+                    arr1 = np.array([float(x) for x in arr1.split()])
+                    arr2 = np.array([float(x) for x in arr2.split()])
+                    if arr1.shape != arr2.shape:
+                        print("Error: Arrays must have the same shape for subtraction.")
+                    else:
+                        result = np.subtract(arr1, arr2)
+                        print(f"The result of array subtraction is: {result}")
+                except ValueError:
+                    print("Invalid input. Please enter numbers only for arrays.")
+            elif arrayop == 3:
+                try:
+                    arr1 = input("Enter the first array elements separated by spaces: ")
+                    arr2 = input("Enter the second array elements separated by spaces: ")
+                    arr1 = np.array([float(x) for x in arr1.split()])
+                    arr2 = np.array([float(x) for x in arr2.split()])
+                    if arr1.shape != arr2.shape:
+                        print("Error: Arrays must have the same shape for multiplication.")
+                    else:
+                        result = np.multiply(arr1, arr2)
+                        print(f"The result of array multiplication is: {result}")
+                except ValueError:
+                    print("Invalid input. Please enter numbers only for arrays.")
+            else arrayop == 4:
+                try:
+                    arr1 = input("Enter the first array elements separated by spaces: ")
+                    arr2 = input("Enter the second array elements separated by spaces: ")
+                    arr1 = np.array([float(x) for x in arr1.split()])
+                    arr2 = np.array([float(x) for x in arr2.split()])
+                    if arr1.shape != arr2.shape:
+                        print("Error: Arrays must have the same shape for division.")
+                    elif np.any(arr2 == 0):
+                        print("Error: Cannot divide by zero in arrays.")
+                    else:
+                        result = np.divide(arr1, arr2)
+                        print(f"The result of array division is: {result}")
+                except ValueError:
+                    print("Invalid input. Please enter numbers only for arrays.")
+            else:
+                print("Invalid array operation option. Please choose between 1 and 4.")                        
         print("-" * 30) # Separator for readability
 THE_calculator2()
-
-
-
-
