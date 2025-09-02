@@ -1,7 +1,10 @@
-def THE_calculator2():
-    import math as ma
-    import numpy as np
+import math as ma
+import numpy as np
 
+def lcm(a, b):
+    return abs(a*b) // ma.gcd(a, b)
+
+def THE_calculator2():
     print("Hi! This is THE calculator. You can calculate numbers with the following options:")
     print("1. Add")
     print("2. Subtract")
@@ -12,22 +15,21 @@ def THE_calculator2():
     print("7. HCF")
     print("8. LCM")
     print("9. array stuff")
-    print("\nType 'exit' at any time to quit the calculator.") # Added exit instruction
+    print("\nType 'exit' at any time to quit the calculator.")
 
-    while True: # Start of the infinite loop
-        user_input = input("Enter your option (number or 'exit'): ").lower() # Convert to lowercase for easier checking
+    while True:
+        user_input = input("Enter your option (number or 'exit'): ").lower()
 
         if user_input == 'exit':
             print("Exiting the calculator. Goodbye!")
-            break # Break the loop if the user types 'exit'
+            break
 
         try:
             option = int(user_input)
-        except ValueError: # Catch ValueError specifically for non-integer inputs
+        except ValueError:
             print("Please enter a valid number for the option, or 'exit'.")
-            continue # Skip to the next iteration of the loop
+            continue
 
-        # Your existing calculation logic goes here
         if option == 1:
             try:
                 add = float(input("Input the first number you want to add: "))
@@ -93,18 +95,15 @@ def THE_calculator2():
             try:
                 lnum = int(input("Enter the first integer for LCM: "))
                 lnum2 = int(input("Enter the second integer for LCM: "))
-                lwans = (ma.lcm(lnum, lnum2))
+                lwans = lcm(lnum, lnum2)
                 print(f"The answer = {lwans}")
             except ValueError:
                 print("Invalid input. Please enter integers only for LCM.")
-        elif:
-            print("Invalid option. Please choose a number between 1 and 8.")
         elif option == 9:
             print("1.add array")
             print("2. subtract array")
             print("3. multiply array")
-            print("2. divide array")
-            print("what do you want to do")
+            print("4. divide array")
             arrayop = int(input("enter the option"))
             if arrayop == 1:
                 try:
@@ -145,7 +144,7 @@ def THE_calculator2():
                         print(f"The result of array multiplication is: {result}")
                 except ValueError:
                     print("Invalid input. Please enter numbers only for arrays.")
-            else arrayop == 4:
+            elif arrayop == 4:
                 try:
                     arr1 = input("Enter the first array elements separated by spaces: ")
                     arr2 = input("Enter the second array elements separated by spaces: ")
@@ -161,6 +160,11 @@ def THE_calculator2():
                 except ValueError:
                     print("Invalid input. Please enter numbers only for arrays.")
             else:
-                print("Invalid array operation option. Please choose between 1 and 4.")                        
-        print("-" * 30) # Separator for readability
-THE_calculator2()
+                print("Invalid array operation option. Please choose between 1 and 4.")
+        else:
+            print("Invalid option. Please choose a number between 1 and 9.")
+
+        print("-" * 30)
+
+if __name__ == "__main__":
+    THE_calculator2()
